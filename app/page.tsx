@@ -1,73 +1,57 @@
+"use client"
+
+import { useState } from "react"
+
 export default function Home() {
 
-  const chatHistory = [
-    {
-      id: 1,
-      message: 'Hi',
-      sender: 'me',
-      time: '12:00',
-    },
-    {
-      id: 2,
-      message: 'Hello',
-      sender: 'other',
-      time: '12:01',
-    },
-    {
-      id: 3,
-      message: 'How are you?',
-      sender: 'me',
-      time: '12:02',
-    },
-    {
-      id: 4,
-      message: 'I am fine',
-      sender: 'other',
-      time: '12:03',
-    },
-    {
-      id: 5,
-      message: 'How about you?',
-      sender: 'other',
-      time: '12:04',
-    },
-    {
-      id: 6,
-      message: 'I am fine too',
-      sender: 'me',
-      time: '12:05',
-    },
-    {
-      id: 7,
-      message: 'Good to hear that',
-      sender: 'other',
-      time: '12:06',
-    },
-    {
-      id: 8,
-      message: 'Bye',
-      sender: 'me',
-      time: '12:07',
-    },
-    {
-      id: 9,
-      message: 'Bye',
-      sender: 'other',
-      time: '12:08',
-    },
-  ]
+  const [prompt, setPrompt] = useState("");
+
+  const [chatHistory, setChatHistory] = useState([
+    { id: 1, message: 'Hello', sender: 'me', time: '12:00' },
+  ])
+
+  const RequestGemini = async (prompt:any) => {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      body: JSON.stringify({ userPrompt: prompt }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  
+    const data = await response.json()
+  
+    setChatHistory((prevChatHistory) => [
+      ...prevChatHistory,
+      { id: prevChatHistory.length + 1, message: data.text, sender: 'model', time: '12:00' }
+    ]);
+  }
+
+  const onHandleClick = async () => {
+
+    console.log("clicked")
+    console.log(chatHistory.length)
+    setChatHistory([...chatHistory, { id: chatHistory.length + 1, message: prompt, sender: '', time: '12:00' }])
+    await RequestGemini(prompt)
+    setPrompt("")
+  }
+
+
 
   return (
     <main>
-      <div className="chat-history">
-        {chatHistory.map((chat) => (
+      <div className="chat-history flex flex-col p-10">
+        {chatHistory.length > 0 && chatHistory.map((chat) => (
           <div key={chat.id} className={`chat-message ${chat.sender}`}>
             <div className="chat-message-content">
-              <div className="chat-message-text" style={{textAlign:'left'}}>{chat.message}</div>
-              <div className="chat-message-time" style={{textAlign:'right'}}>{chat.time}</div>
+              <div className="chat-message-text" style={chat.id % 2 == 0 ? { float: 'left', backgroundColor: 'red', padding: '5px' } : { float: 'right', backgroundColor: 'green', padding: '5px' }}>{chat.message}</div>
             </div>
           </div>
         ))}
+      </div>
+      <div className="mt-10 flex justify-center items-center">
+        <input type="text" placeholder="Enter the prompt" value={prompt} className="p-5" onChange={(e) => setPrompt(e.target.value)} />
+        <button onClick={onHandleClick}>click me</button>
       </div>
     </main>
   )

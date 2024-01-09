@@ -32,9 +32,13 @@ export async function POST(req: NextRequest) {
 
   const result = await chat.sendMessage(userPrompt);
 
+  // console.log(result)
+
   const response = await result.response;
 
   const text = response.text();
+
+  console.log(text);
 
   return NextResponse.json({
     text
