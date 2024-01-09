@@ -1,0 +1,42 @@
+.user {
+    float: left;
+    max-width: 50%;
+    background-color: red;
+}
+
+.model {
+    float: right;
+    max-width: 50%;
+    background-color: green;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f5f5f5;
+    gap: 10px;
+}
+
+.chatHistory {
+    height: 90vh;
+    width: 100%;
+    padding: 20px 10px;
+    overflow-y: scroll;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1vh;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 10px;
+    height: 10vh;
+    width: 100vw;
+    background-color: #f5f5f5;
+}
