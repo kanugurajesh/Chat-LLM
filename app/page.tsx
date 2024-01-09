@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import styles from "@/styles/root.module.css"
 import Image from "next/image"
+import Link from "next/link"
 import Markdown from "react-markdown";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -86,10 +87,12 @@ export default function Home() {
   return (
     <main className={styles.container}>
       <Toaster />
-      <div className="flex gap-2 items-center font-bold">
-        <Image src="/chatbot.png" alt="logo" width={50} height={50} />
-        <h1>Gemini</h1>
-      </div>
+      <Link href="/">
+        <div className="flex gap-2 items-center font-bold">
+          <Image src="/chatbot.png" alt="logo" width={50} height={50} />
+          <h1 className="text-2xl">Gemini</h1>
+        </div>
+      </Link>
       <div className={`flex flex-col mt-2 ${styles.chatHistory}`}>
         {chatHistory.length > 0 && chatHistory.map((chat) => (
           <div key={chat.id} className="mb-5">
@@ -98,8 +101,8 @@ export default function Home() {
         ))}
       </div>
       <div className={`flex justify-center items-center gap-5 ${styles.inputContainer}`}>
-        <input type="text" placeholder="Enter the prompt" value={prompt} className="p-2" onChange={onPromptChange} />
-        <button onClick={onHandleClick}>click me</button>
+        <input type="text" placeholder="Enter the prompt" value={prompt} className={`${styles.input}`} onChange={onPromptChange} />
+        <button className={styles.button} onClick={onHandleClick}>send</button>
       </div>
     </main>
   )
