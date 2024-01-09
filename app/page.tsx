@@ -95,8 +95,15 @@ export default function Home() {
       </Link>
       <div className={`flex flex-col mt-2 ${styles.chatHistory}`}>
         {chatHistory.length > 0 && chatHistory.map((chat) => (
-          <div key={chat.id} className="mb-5">
-            <Markdown className={`p-5 rounded-md ${chat.sender == "user" ? styles.user : styles.model}`}>{chat.message}</Markdown>
+          <div key={chat.id} className="mb-5 relative">
+            <div className={`p-5 rounded-md ${chat.sender == "user" ? styles.user : styles.model}`}>
+              <div className={styles.icons}>
+                <Image src={chat.sender == "user" ? "/user.png" : "/model.png"} alt="logo" width={30} height={30} />
+              </div>
+              <Markdown className="mt-2">
+                {chat.message}
+              </Markdown>
+            </div>
           </div>
         ))}
       </div>
