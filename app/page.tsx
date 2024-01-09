@@ -86,19 +86,19 @@ export default function Home() {
   return (
     <main className={styles.container}>
       <Toaster />
-      <div className="flex gap-2">
+      <div className="flex gap-2 items-center font-bold">
         <Image src="/chatbot.png" alt="logo" width={50} height={50} />
         <h1>Gemini</h1>
       </div>
-      <div className={`flex flex-col ${styles.chatHistory}`}>
+      <div className={`flex flex-col mt-2 ${styles.chatHistory}`}>
         {chatHistory.length > 0 && chatHistory.map((chat) => (
-          <div key={chat.id} className="chat-message">
-            <Markdown className={`chat-message-text ${chat.sender == "user" ? styles.user : styles.model}`}>{chat.message}</Markdown>
+          <div key={chat.id} className="mb-5">
+            <Markdown className={`p-5 rounded-md ${chat.sender == "user" ? styles.user : styles.model}`}>{chat.message}</Markdown>
           </div>
         ))}
       </div>
       <div className={`flex justify-center items-center gap-5 ${styles.inputContainer}`}>
-        <input type="text" placeholder="Enter the prompt" value={prompt} className="p-5" onChange={onPromptChange} />
+        <input type="text" placeholder="Enter the prompt" value={prompt} className="p-2" onChange={onPromptChange} />
         <button onClick={onHandleClick}>click me</button>
       </div>
     </main>
