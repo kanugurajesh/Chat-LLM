@@ -58,11 +58,11 @@ To get started with Chat-LLM, follow these simple steps:
 
 ## Tech Stack
 
-- Html
+- Next.js
+- Typescript
+- Tailwind css
+- Gemini Pro
 - Css
-- JavaScript
-- Electron.js
-- Node.js
 
 ## Contributing
 
