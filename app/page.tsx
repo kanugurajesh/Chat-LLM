@@ -86,6 +86,12 @@ export default function Home() {
 
   }
 
+  const handleSubmit = (e: any) => {
+    if (e.key === "Enter") {
+      onHandleClick()
+    }
+  }
+
   // show welcome message
   useEffect(() => {
     const visited = localStorage.getItem('visited')
@@ -112,7 +118,7 @@ export default function Home() {
       <Link href="/">
         <div className="flex gap-2 items-center font-bold">
           <Image src="/consultation.png" alt="logo" width={30} height={30} />
-          <h1 className="text-2xl">Healthify</h1>
+          <h1 className="text-2xl">Mentify</h1>
         </div>
       </Link>
       <div className={`flex flex-col mt-2 ${styles.chatHistory}`} ref={chatContainerRef}>
@@ -131,7 +137,7 @@ export default function Home() {
       </div>
       <div className={`flex justify-center items-center gap-5 ${styles.inputContainer}`}>
         <div className="relative">
-          <input type="text" placeholder="Enter the prompt" value={prompt} className={`${styles.input}`} onChange={onPromptChange} />
+          <input type="text" placeholder="Enter the prompt" value={prompt} className={`${styles.input}`} onChange={onPromptChange} onKeyDown={handleSubmit}/>
           <Image src="/clean.png" alt="logo" width={20} height={20} className="absolute top-3 right-3 cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out" onClick={deleteChatHistory}/>
         </div>
         {loading ? (
