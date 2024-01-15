@@ -52,10 +52,6 @@ To get started with Chat-LLM, follow these simple steps:
 
 ## Screeshots
 
-![Screenshot 2024-01-15 094001](https://github.com/kanugurajesh/Chat-LLM/assets/77529419/0078a797-f38d-4f41-828b-1450cdbd1e9f)
-![Screenshot 2024-01-15 094246](https://github.com/kanugurajesh/Chat-LLM/assets/77529419/31f0c2e8-b82d-407d-b22b-43bd82f8ce1e)
-![Screenshot 2024-01-15 094306](https://github.com/kanugurajesh/Chat-LLM/assets/77529419/aaf090eb-ccee-4819-be38-bd32acc3c20e)
-![Screenshot 2024-01-15 094323](https://github.com/kanugurajesh/Chat-LLM/assets/77529419/f7dfd973-4b8b-4564-bbed-63aac45ab584)
 
 
 ## 🔗 Links
