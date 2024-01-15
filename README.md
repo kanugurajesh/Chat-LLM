@@ -52,7 +52,11 @@ To get started with Chat-LLM, follow these simple steps:
 
 ## Screeshots
 
-
+![Screenshot 2024-01-15 094714](https://github.com/kanugurajesh/Chat-LLM/assets/77529419/b49932f3-f16b-49e8-853e-70f2860990a7)
+<br>
+![Screenshot 2024-01-15 094721](https://github.com/kanugurajesh/Chat-LLM/assets/77529419/c07603a4-d214-4793-b0b6-4cd412cd7558)
+<br>
+![Screenshot 2024-01-15 094735](https://github.com/kanugurajesh/Chat-LLM/assets/77529419/d9087f0c-46df-413f-b34e-746f71d34f48)
 
 ## 🔗 Links
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://rajeshportfolio.me/)
