@@ -51,11 +51,12 @@
 }
 
 .input {
-    width: 250px;
+    width: 280px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     outline: none;
+    padding-right: 40px;
 }
 
 .icons {

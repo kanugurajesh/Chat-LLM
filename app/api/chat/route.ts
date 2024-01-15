@@ -8,17 +8,18 @@ const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
 const chat = model.startChat({
   history: [
-    {
-      role: "user",
-      parts: "Hello, can you answer my questions.",
-    },
-    {
-      role: "model",
-      parts: "Sure, what do you want to know?",
-    },
+    // you can write any conversation history here
+    // {
+    //   role: "user",
+    //   parts: "Hello, can you answer my questions.",
+    // },
+    // {
+    //   role: "model",
+    //   parts: "Sure, what do you want to know?",
+    // },
   ],
   generationConfig: {
-    maxOutputTokens: 100,
+    maxOutputTokens: 1000,
   },
 });
 
@@ -32,16 +33,18 @@ export async function POST(req: NextRequest) {
 
   const result = await chat.sendMessage(userPrompt);
 
-  // console.log(result)
-
   const response = await result.response;
 
   const text = response.text();
 
-  console.log(text);
+  if (text === "") {
+    return NextResponse.json({
+      text: "Sorry, I don't understand.",
+    });
+  }
 
   return NextResponse.json({
-    text
+    text,
   });
 
 }
